@@ -49,4 +49,32 @@ plot(subscribers$Subscribers, type="p", ylim=c(0, 30000),
      xlab="Day", ylab="Subscribers")
 points(subscribers$Subscribers, pch=19, col="black")
 
-Hello
+# Time Series --> 4-40
+
+pop<- file.choose()
+
+population <-
+  hotdogs<-read.csv(pop, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+
+options(scipen = 99)
+
+plot(population$Year, population$Population, type="l",
+     ylim=c(0, 7000000000), xlab="Year", ylab="Population")
+
+#Step plot --> 4-42
+
+postage <- read.csv("http://datasets.flowingdata.com/us-postage.csv", sep=",", header=TRUE, stringsAsFactors = FALSE)
+View(postage)
+
+plot(postage$Year, postage$Price, type="s", main="US Postage Rates for Letters, First Ounce, 1991-2010",
+xlab="Year", ylab="Postage Rate (Dollars)")
+
+#LOESS Curve Fig: 4-47
+# Load data
+unemployment <-
+  read.csv("http://datasets.flowingdata.com/unemployment-rate-1948-2010.csv",
+    sep=",", stringsAsFactors = FALSE)
+
+plot(1:length(unemployment$Value), unemployment$Value)
+scatter.smooth(x=1:length(unemployment$Value),
+               y=unemployment$Value, ylim=c(0,11), degree=2, col="#CCCCCC", span=0.5)
